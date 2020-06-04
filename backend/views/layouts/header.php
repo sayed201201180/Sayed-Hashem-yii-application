@@ -10,10 +10,10 @@ use \yii\web\View;
                 <div class="top-left-part">
                     <!-- Logo -->
                     <?= Html::a('<b>
-                        <!--This is dark logo icon--><img src="'.Yii::$app->request->baseUrl.'/images/afkary-toplogo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="'.Yii::$app->request->baseUrl.'/images/afkary-toplogo.png" alt="home" class="light-logo" />
+                        <!--This is dark logo icon--><img src="'.Yii::$app->request->baseUrl.'/images/yii-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="'.Yii::$app->request->baseUrl.'/images/yii-logo.png" alt="home" class="light-logo" width="25" />
                      </b>
                         <!-- Logo text image you can use text also --><span class="hidden-xs">
-                        <!--This is dark logo text--><img src="'.Yii::$app->request->baseUrl.'/images/afkary-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="'.Yii::$app->request->baseUrl.'/images/afkary-text.png" alt="home" class="light-logo" />
+                        <!--This is dark logo text--><img src="'.Yii::$app->request->baseUrl.'/images/yii-logo.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="'.Yii::$app->request->baseUrl.'/images/yii-logo.png" alt="home" class="light-logo" width="25" />
                      </span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
                 </div>
                 <!-- /Logo -->
@@ -30,14 +30,22 @@ use \yii\web\View;
                     </li>
 -->
                     <li class="dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="<?= Yii::$app->request->baseUrl ?>/images/afkary-avatar.png" alt="user-img" width="36" class="img-circle"><b class="hidden-xs"><?= \yii\helpers\Html::encode(\Yii::$app->user->identity->username) ?></b><span class="caret"></span> </a>
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
+                        <?php if (!Yii::$app->user->isGuest) { ?>
+                        <img src="<?= Yii::$app->request->baseUrl ?>/images/user-logo.jpg" alt="user-img" width="36" class="img-circle">
+                        <b class="hidden-xs"><?= \yii\helpers\Html::encode(\Yii::$app->user->identity->username) ?></b><span class="caret"></span> </a>
+                        <?php } ?>
                         <ul class="dropdown-menu dropdown-user animated flipInY">
-                            <li>
+                            <li>                            
                                 <div class="dw-user-box">
-                                    <div class="u-img"><img src="<?= Yii::$app->request->baseUrl ?>/images/afkary-avatar.png" alt="user" /></div>
-                                    <div class="u-text">
+
+                                <?php if (!Yii::$app->user->isGuest) { ?>
+                                    <div class="u-img" style="width: 20%"><img src="<?= Yii::$app->request->baseUrl ?>/images/user-logo.jpg" alt="user" /></div>
+                                    <div class="u-text" style="float: right">
                                         <h4><?= \yii\helpers\Html::encode(\Yii::$app->user->identity->username) ?></h4>
-                                        <p class="text-muted"><?= \yii\helpers\Html::encode(\Yii::$app->user->identity->email) ?></p><?=Html::a('View Profile', ['/profile/index'],['class'=>'btn btn-rounded btn-green btn-sm'])?></div>
+                                        <p class="text-muted"><?= \yii\helpers\Html::encode(\Yii::$app->user->identity->email) ?></p>
+                                        <?=Html::a('View Profile', ['/profile/index'],['class'=>'btn btn-rounded btn-green btn-sm'])?></div>
+                                <?php } ?>
                                 </div>
                             </li>
                             <?php

@@ -38,7 +38,7 @@ $this->registerJs($script);
 
 ?>
 
-<div class="navbar-default sidebar" role="navigation">
+<div id="navbar-default sidebar" role="navigation" class="toggled">
             <div class="sidebar-nav slimscrollsidebar">
                 <div class="sidebar-head">
                     <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Menu</span></h3> </div>

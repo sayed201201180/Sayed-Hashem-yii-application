@@ -37,10 +37,11 @@ class ProfileController extends \yii\web\Controller
 
         if (!empty($model->username) && !empty($model->email)) {
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->redirect(['index']);
+                
+                return $this->render('index', [ 'model' => $model, ]);
             }
         }
-        //else error
+        //else{   return $this->render('error');  }
 
         return $this->render('edit', [
             'model' => $model,

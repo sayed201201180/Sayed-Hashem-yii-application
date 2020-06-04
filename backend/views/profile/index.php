@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1><?= Html::encode('Your '.$this->title) ?></h1></div>
 
     <div class="col-lg-8" >
+    
     <h1><?= Html::a('Edit Profile', ['edit', 'id' => $model->id], ['class' => 'btn btn-primary']) ?></h1>
     
 
@@ -52,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
 
-<div class="col-lg-5"><img src="<?= Yii::$app->request->baseUrl ?>/images/afkary-avatar.png" width=300 height=300></div>
+<div class="col-lg-5"><img src="<?= Yii::$app->request->baseUrl ?>/images/user-logo.jpg" width=300 height=300></div>
 
 
 
