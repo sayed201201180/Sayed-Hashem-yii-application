@@ -7,6 +7,12 @@ use yii\web\Controller;
 use common\models\User;
 use yii\web\NotFoundHttpException;
 use yii\base\Model;
+use yii\db\Query;
+use app\models\Store;
+use app\models\Product;
+use app\models\Order;
+
+
 
 
 
@@ -29,6 +35,7 @@ class ProfileController extends \yii\web\Controller
         }
 
     }
+
 
     public function actionEdit($id)
     {

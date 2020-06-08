@@ -49,22 +49,26 @@ use yii\helpers\Html;
     <!-- ============================================================== -->
     <!-- Wrapper -->
     <!-- ============================================================== -->
-    <div id="wrapper">
-        <?= $this->render(
-            'header.php',
-            ['directoryAsset' => $directoryAsset]
-        ) ?>
-
-        <?= $this->render(
+    <div id="wrapper" class="toggled">
+    <?= $this->render(
             'left.php',
             ['directoryAsset' => $directoryAsset]
         )
         ?>
 
         <?= $this->render(
+            'header.php',
+            ['directoryAsset' => $directoryAsset]
+        ) ?>
+
+        
+
+        <?= $this->render(
             'content.php',
             ['content' => $content, 'directoryAsset' => $directoryAsset]
         ) ?>
+
+
 
     </div>
     <?php $this->endBody() ?>
