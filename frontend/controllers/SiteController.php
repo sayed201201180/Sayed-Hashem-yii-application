@@ -257,4 +257,19 @@ class SiteController extends Controller
             'model' => $model
         ]);
     }
+
+
+   /*public function actionTest(){
+        Yii::$app->mailer->compose()
+        ->setTo('sayed201201180@gmail.com')
+        ->setFrom('sayed201201180@gmail.com')
+        ->setSubject('ello')
+        ->setTextBody('elloelloelloelloello')
+        ->send();
+
+        return $this->render('test');
+    }*/
+
+
+
 }
