@@ -10,7 +10,9 @@ return [
     'name' => 'Loyal App',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'timeZone' => 'Asia/Bahrain',
+    //'timeZone' => 'Asia/Bahrain',
+    'controllerNamespace' => 'api\controllers',
+
     
     'modules' => [
         'v1' => [
@@ -23,6 +25,7 @@ return [
     'components' => [
         'response' => [
             'format' => yii\web\Response::FORMAT_JSON,
+            'charset' => 'UTF-8',
             'class' => 'yii\web\Response',
             'on beforeSend' => function ($event) {
                 $response = $event->sender;
@@ -54,7 +57,7 @@ return [
             ],
         ],
         'request' => [
-             'enableCookieValidation' => false,
+            'enableCookieValidation' => false,
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
             ]
@@ -66,10 +69,14 @@ return [
             // Disable r= routes
             'enablePrettyUrl' => true,
             'enableStrictParsing' => false,
-            'rules' => array(
+            /*'rules' => array(
                 '<controller:\w+>' => '<controller>/index',    
                 
-            ),
+            ),*/
+            'rules' => [
+                ['class' => 'yii\rest\UrlRule',
+                'controller' => 'app'],
+            ],
         ],
     ],
     'params' => $params,

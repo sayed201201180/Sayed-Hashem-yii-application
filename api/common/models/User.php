@@ -73,6 +73,9 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return static::findOne(['access_token' => $token, 'status' => self::STATUS_ACTIVE]);
     }
+
+    
+
     
     /**
      * @inheritdoc
@@ -110,4 +113,8 @@ class User extends ActiveRecord implements IdentityInterface
     {
         
     }
+
+
+    
+
 }

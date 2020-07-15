@@ -1,4 +1,8 @@
 <?php
+
+use yii\rest\UrlRule;
+use yii\web\JsonParser;
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -14,6 +18,10 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'parsers' => [
+                'application/json' => JsonParser::class,
+                'charset' => 'UTF-8',
+            ]
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -44,6 +52,7 @@ return [
             ],
         ],
         */
+        
     ],
     'params' => $params,
 ];
